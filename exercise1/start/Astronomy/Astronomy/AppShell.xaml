@@ -3,9 +3,72 @@
     x:Class="Astronomy.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Astronomy.Pages">
+    xmlns:local="clr-namespace:Astronomy.Pages"
+    FlyoutBehavior="Flyout">
 
-    <ShellContent
-        ContentTemplate="{DataTemplate local:MoonPhasePage}"/>
+    <Shell.FlyoutHeader>
+        <Grid HeightRequest="100" BackgroundColor="DarkSlateBlue">
+            <Image Source="moon.png" />
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <!--<TabBar>
+        <Tab Title="Astronomy">
+            <ShellContent 
+        Title="Moon Phase"
+        ContentTemplate="{DataTemplate local:MoonPhasePage}"
+        Icon="moon.png"/>
+
+            <ShellContent Title="Sunrise"
+                  ContentTemplate="{DataTemplate local:SunrisePage}"
+                  Icon="sun.png"/>
+        </Tab>
+    </TabBar>
+
+
+    <ShellContent Title="About"
+                  ContentTemplate="{DataTemplate local:AboutPage}"
+                  Icon="question.png"/>-->
+
+    <!-- Flyout with both top and bottom tabs-->
+    <FlyoutItem Title="Astronomy" Icon="moon.png">
+        <Tab Title="Details" Icon="moon.png">
+            <ShellContent Title="About" Icon="question.png"
+            ContentTemplate="{DataTemplate local:AboutPage}"/>
+            <ShellContent Title="Moon Phase" Icon="moon.png"
+            ContentTemplate="{DataTemplate local:MoonPhasePage}"/>
+        </Tab>
+        <ShellContent Title="Sunrise" Icon="sun.png"
+            ContentTemplate="{DataTemplate local:SunrisePage}"/>
+    </FlyoutItem>
+    <ShellContent Title="About" Icon="question.png"
+            ContentTemplate="{DataTemplate local:AboutPage}"/>
+    <!--<FlyoutItem Title="Astronomy" Icon="moon.png">
+        <ShellContent Title="Moon Phase" Icon="moon.png"
+            ContentTemplate="{DataTemplate local:MoonPhasePage}"/>
+
+        <ShellContent Title="Sunrise" Icon="sun.png"
+            ContentTemplate="{DataTemplate local:SunrisePage}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="About" Icon="question.png">
+        <ShellContent
+            ContentTemplate="{DataTemplate local:AboutPage}"/>
+    </FlyoutItem>-->
+    <!--<TabBar>
+        <ShellContent 
+        Title="Moon Phase"
+        ContentTemplate="{DataTemplate local:MoonPhasePage}"
+        Icon="moon.png"/>
+
+        <ShellContent Title="Sunrise"
+                  ContentTemplate="{DataTemplate local:SunrisePage}"
+                  Icon="sun.png"/>
+
+
+        <ShellContent Title="About"
+                  ContentTemplate="{DataTemplate local:AboutPage}"
+                  Icon="question.png"/>
+    </TabBar>-->
 
 </Shell>
